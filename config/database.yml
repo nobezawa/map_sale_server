@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+
+development:
+  adapter: mysql2
+  host: localhost
+  database: map_sale_db
+  username: map_sale
+  password: map_sale
+  encoding: utf8
+  pool: 5
+  reconnect: true
+
+test:
+  adapter: mysql2
+  host: localhost
+  database: map_sale_db
+  username: map_sale
+  password: map_sale
+  encoding: utf8
+  pool: 5
+  reconnect: true
+
+  
+production:
+  adapter: mysql2
+  host: localhost
+  database: map_sale_db
+  username: map_sale
+  password: map_sale
+  encoding: utf8
+  pool: 5
+  reconnect: true
