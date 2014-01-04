@@ -1,0 +1,40 @@
+<%= form_for(@shop) do |f| %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+      <% @shop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    企業名<br>
+    <%= f.select :company_id, @company.map{|t|[t.name, t.id]} %>
+  </div>
+  <div class="field">
+    カテゴリー名<br>
+    <%= f.select :shop_category_id, @shop_category.map{|t|[t.type_name, t.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    都道府県<br>
+    <%= f.select :prefecture, Company::PREFECTURES.map{|zone| [zone[1], zone[0] ]} %>
+  </div>
+   <div class="field">
+    市街地<br>
+    <%= f.text_field :district %>
+  </div>
+   <div class="field">
+    詳細な住所<br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
