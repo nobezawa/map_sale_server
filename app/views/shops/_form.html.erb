@@ -26,6 +26,7 @@
     都道府県<br>
     <%= f.select :prefecture, Company::PREFECTURES.map{|zone| [zone[1], zone[0] ]} %>
   </div>
+
    <div class="field">
     市街地<br>
     <%= f.text_field :district %>

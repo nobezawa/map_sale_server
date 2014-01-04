@@ -1,0 +1,29 @@
+<h1>Listing shopDetailType</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>カテゴリー</th>
+      <th>詳細な項目</th>
+      <th colspan="3">編集</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shop_detail_types.each do |shop_detail_type| %>
+      <tr>
+	<td><%= shop_detail_type.id%></td>
+	<td><%= @hash[shop_detail_type.shop_category_id] %></td>
+        <td><%= shop_detail_type.detail_tag_name %></td>
+        <td><%= link_to 'Show', shop_detail_type %></td>
+        <td><%= link_to 'Edit', edit_shop_detail_type_path(shop_detail_type) %></td>
+        <td><%= link_to 'Destroy', shop_detail_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shop_Detail_Type', new_shop_detail_type_path %>

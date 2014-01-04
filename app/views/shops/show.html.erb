@@ -2,8 +2,17 @@
 
 <p>
   <strong>name:</strong>
-  <%= @company.name %>
+  <%= @shop.name %>
 </p>
+<p>
+  <strong>都道府県</strong>
+  <%= Company::PREFECTURES[@shop.prefecture.to_s] %>
+</p>
+<p>
+  <strong>詳細な住所</strong>
+  <%= @shop.address %>
+</p>
+
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

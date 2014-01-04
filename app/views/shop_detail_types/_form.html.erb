@@ -1,0 +1,25 @@
+<%= form_for(@shop_detail_type) do |f| %>
+  <% if @shop_detail_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop_detail_type.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+      <% @shop_detail_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    カテゴリー名<br>
+    <%= f.select :shop_category_id, @shop_category.map{|t|[t.type_name, t.id]} %>
+  </div>
+   <div class="field">
+    詳細な項目<br>
+    <%= f.text_field :detail_tag_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104083945) do
+ActiveRecord::Schema.define(version: 20140104113856) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -24,8 +24,24 @@ ActiveRecord::Schema.define(version: 20140104083945) do
     t.datetime "updated_at"
   end
 
+  create_table "districts", force: true do |t|
+    t.integer  "prefecture"
+    t.string   "district_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "districts", ["prefecture"], name: "index_districts_on_prefecture", using: :btree
+
   create_table "shop_categories", force: true do |t|
     t.string   "type_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_detail_types", force: true do |t|
+    t.integer  "shop_category_id"
+    t.string   "detail_tag_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,13 +49,18 @@ ActiveRecord::Schema.define(version: 20140104083945) do
   create_table "shops", force: true do |t|
     t.integer  "company_id"
     t.integer  "shop_category_id"
-    t.integer  "shop_detail_category_id"
+    t.integer  "shop_detail_type_id"
     t.string   "name"
     t.integer  "prefecture"
-    t.integer  "district"
+    t.integer  "district_id"
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "shops", ["company_id"], name: "index_shops_on_company_id", using: :btree
+  add_index "shops", ["district_id"], name: "index_shops_on_district_id", using: :btree
+  add_index "shops", ["shop_category_id"], name: "index_shops_on_shop_category_id", using: :btree
+  add_index "shops", ["shop_detail_type_id"], name: "index_shops_on_shop_detail_type_id", using: :btree
 
 end

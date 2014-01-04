@@ -1,0 +1,29 @@
+<h1>Listing Districts</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>都道府県</th>
+      <th>地域</th>
+      <th colspan="3">編集</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @districts.each do |district| %>
+      <tr>
+	<td><%= district.id%></td>
+	<td><%= Company::PREFECTURES[district.prefecture.to_s] %></td>
+        <td><%= district.district_name %></td>
+        <td><%= link_to 'Show', district %></td>
+        <td><%= link_to 'Edit', edit_district_path(district) %></td>
+        <td><%= link_to 'Destroy', district, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New District', new_district_path %>
