@@ -23,6 +23,7 @@ gem 'debugger', group: [:development, :test]
 group :test, :development do
   gem "rspec"
   gem "rspec-rails"
+  gem 'factory_girl_rails'
 end
 
 group :test, :development do

@@ -1,0 +1,12 @@
+<h1>API練習</h1>
+<%= form_tag('/api/where') do %>
+<div class="field">
+緯度<br>
+<%= text_field_tag 'point[latitude]' %>
+</div>
+<div class="field">
+経度<br>
+<%= text_field_tag 'point[longitude]' %>
+</div>
+<p><%= submit_tag(['送信']) %></p>
+<% end %>
