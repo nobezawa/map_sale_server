@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'execjs'
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
+
 
 
 gem 'debugger', group: [:development, :test]

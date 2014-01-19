@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104113856) do
+ActiveRecord::Schema.define(version: 20140119084252) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140104113856) do
     t.datetime "updated_at"
   end
 
+  add_index "districts", ["district_name"], name: "index_districts_on_district_name", using: :btree
   add_index "districts", ["prefecture"], name: "index_districts_on_prefecture", using: :btree
 
   create_table "shop_categories", force: true do |t|
