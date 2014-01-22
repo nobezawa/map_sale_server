@@ -8,6 +8,9 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @shop_category = ShopCategory.find_by('id' => @shop.shop_category_id)
+    @district = District.find_by('id' => @shop.district_id)
+    @events =@shop.events
   end
 
   # GET /shops/new
@@ -15,6 +18,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new
     @company = Company.all
     @shop_category = ShopCategory.all
+
   end
 
   # GET /shops/1/edit

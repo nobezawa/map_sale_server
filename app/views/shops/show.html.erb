@@ -1,18 +1,56 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>name:</strong>
-  <%= @shop.name %>
-</p>
-<p>
-  <strong>都道府県</strong>
-  <%= Company::PREFECTURES[@shop.prefecture.to_s] %>
-</p>
-<p>
-  <strong>詳細な住所</strong>
-  <%= @shop.address %>
-</p>
-
+<h2>ショップ情報</h2>
+<table class="table">
+  <tr>
+    <th>ショップ名</th>
+    <td><%= @shop.name %></td>
+  </tr>
+  <tr>
+    <th>ショップカテゴリー</th>
+    <td><%= @shop_category[:type_name] %></td>
+  </tr>
+  <tr>
+    <th>都道府県</th>
+    <td><%= Company::PREFECTURES[@shop.prefecture.to_s] %></td>
+  </tr>
+  <tr>
+    <th>区分</th>
+    <td><%= @district[:district_name] %></td>
+  </tr>
+  <tr>
+    <th>詳細な住所</th>
+    <td><%= @shop.address %></td>
+  </tr>
+</table>
+<h4>イベント名</h4>
+<% @events.each do |event| %>
+<table class="table">
+  <tr>
+    <th>イベント名</th>
+    <td><%= event.title %></td>
+  </tr>
+  <tr>
+    <th>説明</th>
+    <td><%= event.summary %></td>
+  </tr>
+  <tr>
+    <th>割引コード</th>
+    <td><%= event.discount_code %></td>
+  </tr>
+  <tr>
+    <th>開始時刻</th>
+    <td><%= event.start_time %></td>
+  </tr>
+  <tr>
+    <th>終了時刻</th>
+    <td><%= event.end_time %></td>
+  </tr>
+  <tr>
+    <th>状態</th>
+    <td><%= '掲載中' if event.active == true%></td>
+  </tr>
+</table>
+<% end %>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

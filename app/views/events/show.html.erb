@@ -4,6 +4,25 @@
   <strong>イベント</strong>
   <%= @event.title %>
 </p>
+<p>
+  <strong>説明</strong>
+  <%= @event.summary %>
+</p>
+<p>
+  <strong>割引コード</strong>
+  <%= @event.discount_code %>
+</p>
+<p>
+  <strong>開始時刻</strong>
+  <%= @event.start_time %>
+</p>
+<p>
+  <strong>終了時刻</strong>
+  <%= @event.end_time %>
+</p>
+
+
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

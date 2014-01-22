@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @shops = Shop.all
+    @shop_data = Hash[@shops.map {|t| [t.id, name: t.name ]}]
   end
 
   def show
@@ -19,8 +21,11 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @shops = Shop.all
+    @shop_data = Hash[@shops.map {|t| [t.name, t.id ]}]
   end
 
+  
   # POST /events
   # POST /events.json
   def create
@@ -69,6 +74,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:shop_id, :title, :summary, :dicount_conde, :start_date, :start_time, :end_date, :end_time)
+      params.require(:event).permit(:shop_id, :title, :summary, :dicount_conde, :start_time, :end_time)
     end
 end

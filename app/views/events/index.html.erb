@@ -5,6 +5,7 @@
     <tr>
       <th>No.</th>
       <th>ショップ名</th>
+      <th>イベント名</th>
       <th colspan="3">編集</th>
     </tr>
   </thead>
@@ -13,7 +14,8 @@
     <% @events.each do |event| %>
       <tr>
 	<td><%= event.id%></td>
-        <td><%= event.shop_id %></td>
+        <td><%= @shop_data[event.shop_id][:name] %></td>
+	<td><%= event.title %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
