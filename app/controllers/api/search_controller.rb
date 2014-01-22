@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 class Api::SearchController < ApplicationController
 
+  protect_from_forgery with: :null_session
+  
   require 'uri'
   require 'net/http'
   require 'json'

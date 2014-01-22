@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119084252) do
+ActiveRecord::Schema.define(version: 20140122064220) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 20140119084252) do
 
   add_index "districts", ["district_name"], name: "index_districts_on_district_name", using: :btree
   add_index "districts", ["prefecture"], name: "index_districts_on_prefecture", using: :btree
+
+  create_table "events", force: true do |t|
+    t.integer  "shop_id"
+    t.string   "title"
+    t.text     "summary"
+    t.string   "discount_code"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["shop_id"], name: "index_events_on_shop_id", using: :btree
 
   create_table "shop_categories", force: true do |t|
     t.string   "type_name"

@@ -16,3 +16,7 @@
 body{
    padding-top:70px;
 }
+
+#eventForm select{
+   width:88px;
+}

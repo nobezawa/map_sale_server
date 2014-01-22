@@ -5,7 +5,8 @@ MapSale::Application.routes.draw do
   resources :shop_categories
   resources :shop_detail_types
   resources :districts
-
+  resources :events
+  
   namespace :api do
     post "/where", :controller => :search, :action => "now_where"
     get  "/where", :controller => :search, :action => "now_where"
