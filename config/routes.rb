@@ -1,7 +1,15 @@
 MapSale::Application.routes.draw do
   root :to => "home#index"
   resources :companies
-  resources :shops
+  resources :shops do
+    collection do
+      get :event_new
+      post :event_create
+    end
+    member do
+      get :event_new
+    end
+  end
   resources :shop_categories
   resources :shop_detail_types
   resources :districts

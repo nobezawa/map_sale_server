@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:show, :edit, :update, :destroy, :event_new]
 
   # GET /shops
   # GET /shops.json
@@ -65,6 +65,16 @@ class ShopsController < ApplicationController
     end
   end
 
+  def event_new
+    @event = Event.new
+  end
+
+  def event_create
+    @event = Event.new(event_params)
+    @event.save!
+    redirect_to shops_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shop
@@ -75,4 +85,9 @@ class ShopsController < ApplicationController
     def shop_params
       params.require(:shop).permit(:company_id, :shop_category_id, :prefecture, :name, :district, :address)
     end
+
+    def event_params
+      params.require(:event).permit(:shop_id, :title, :summary, :dicount_conde, :start_time, :end_time)
+    end
+    
 end

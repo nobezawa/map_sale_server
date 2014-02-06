@@ -24,7 +24,7 @@
 </table>
 <h4>イベント名</h4>
 <% @events.each do |event| %>
-<table class="table">
+<table class="table eventTable">
   <tr>
     <th>イベント名</th>
     <td><%= event.title %></td>
@@ -52,5 +52,7 @@
 </table>
 <% end %>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<%= link_to 'Edit', edit_shop_path(@shop) %> |
+<%= link_to 'Back', shops_path %>
+
+<%= link_to 'イベント作成', event_new_shop_path(@shop) %>

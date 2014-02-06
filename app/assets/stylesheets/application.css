@@ -20,3 +20,7 @@ body{
 #eventForm select{
    width:88px;
 }
+
+.eventTable th{
+   width:85px;
+}

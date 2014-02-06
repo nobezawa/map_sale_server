@@ -8,7 +8,8 @@ class Api::SearchController < ApplicationController
   require 'json'
 
   def now_where
-    request_geocoding(now_where_params[:latitude], now_where_params[:longitude])
+    #request_geocoding(now_where_params[:latitude], now_where_params[:longitude])
+    request_geocoding(35.670168, 139.702687)
   end
 
   def practice
