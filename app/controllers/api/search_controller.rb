@@ -48,7 +48,15 @@ class Api::SearchController < ApplicationController
       end
     end
     @shops = Shop.where(:district_id => district_result["id"])
-    render :json => {result: @shops}
+    @events = Event.where(:shop_id => @shops[0][:id])
+    @hash = Hash.new
+    @shops.zip(@events).each do |v1, v2|
+      @hash[:name] = v1.name
+      @hash[:address] = v1.address
+      @hash[:title] = v2.title
+      @hash[:summary] = v2.summary
+    end
+    render :json => {result: @hash}
   end
   
 end
